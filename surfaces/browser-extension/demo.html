@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thirsty — demo (mock claude.ai)</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0; min-height: 100vh; background: #0f0f10; color: #ededed;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    header { padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,.08); display:flex; gap:10px; align-items:center;}
+    header .dot { width: 20px; height:20px; border-radius:6px; background:#c96442; }
+    .chat { max-width: 720px; margin: 0 auto; padding: 28px 20px 120px; }
+    /* Like claude.ai: messages stack vertically, full column width. */
+    .row { margin: 18px 0; }
+    .row.user { display:flex; justify-content: flex-end; }
+    [data-testid="user-message"] {
+      background:#26262a; padding:12px 16px; border-radius:16px; max-width:75%;
+    }
+    .font-claude-message {
+      display:block; background:transparent; line-height:1.6; font-size:16px;
+    }
+    .hint { color:#8a8a90; font-size:13px; text-align:center; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="dot"></span>
+    <button aria-haspopup="menu" data-testid="model-selector">Claude Opus 4.8</button>
+  </header>
+
+  <main class="chat">
+    <div class="row user"><div data-testid="user-message">Hello</div></div>
+    <div class="row"><div class="font-claude-message">Hey Sid! How can I help you today?</div></div>
+
+    <div class="row user"><div data-testid="user-message">Can you explain how you'd estimate the water footprint of an AI prompt, end to end?</div></div>
+    <div class="row"><div class="font-claude-message">
+      Sure. You can't measure it directly, so you model it: count the tokens, convert
+      tokens to energy using a per-model Watt-hour figure, then convert energy to water
+      using the datacenter's cooling water plus the water used to generate the electricity.
+      Every step is a public estimate with wide error bars, and the honest per-prompt number
+      turns out to be a fraction of a millilitre — not the litres the memes suggest.
+    </div></div>
+
+    <p class="hint">Local test fixture (not shipped) — the card below the bot's last reply is injected by the Thirsty extension.</p>
+  </main>
+
+  <script src="dist/content.js"></script>
+</body>
+</html>
