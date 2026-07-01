@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: npm test
+      - name: Build + package extension
+        run: npm run package --workspace @thirsty/browser-extension
+      - name: Get version from tag
+        id: v
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: surfaces/browser-extension/thirsty.zip
+          generate_release_notes: true
+
+      # Uncomment to auto-publish to the Chrome Web Store after the FIRST manual publish.
+      # Requires CWS_CLIENT_ID / CWS_CLIENT_SECRET / CWS_REFRESH_TOKEN repo secrets and the
+      # extension id below (see surfaces/browser-extension/CHROME_WEB_STORE_SETUP.md).
+      #
+      # - name: Publish to Chrome Web Store
+      #   uses: mnao305/chrome-extension-upload@v5.0.0
+      #   with:
+      #     file-path: surfaces/browser-extension/thirsty.zip
+      #     extension-id: <your-extension-id>
+      #     client-id: ${{ secrets.CWS_CLIENT_ID }}
+      #     client-secret: ${{ secrets.CWS_CLIENT_SECRET }}
+      #     refresh-token: ${{ secrets.CWS_REFRESH_TOKEN }}
