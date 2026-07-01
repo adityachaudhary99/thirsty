@@ -55,9 +55,9 @@ Free and open source. Not affiliated with Anthropic.
 - **Icon:** `icons/icon-128.png` (already generated)
 - **Screenshot 1 (ready):** `docs/media/store-screenshot-1.png` — 1280×800, the real card
   on claude.ai with the brand headline. Upload this as the first screenshot.
-- **More screenshots (1280×800 or 640×400), up to 5:** capture from the demo recording —
+- **More screenshots (1280×800 or 640×400), up to 5:** capture while recording the demo —
   1) Hello + card, 2) longer reply + card, 3) meme mode on, 4) energy/carbon chips,
-  5) full conversation with card. See `docs/DEMO_SCRIPT.md` (Shot list) for these.
+  5) full conversation with card.
 - **Small promo tile (440×280):** optional; can reuse a cropped screenshot on brand blue.
 
 ## Notes
