@@ -1,0 +1,12 @@
+{
+  "name": "@thirsty/provider-xai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Example coefficient-pack plugin: registers xAI Grok models with @thirsty/core.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": {
+    "@thirsty/core": "*"
+  }
+}
