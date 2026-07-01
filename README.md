@@ -7,10 +7,11 @@ Thirsty turns that meme into a real, honest tool. It estimates the **water,
 energy, and CO₂** behind an AI conversation and shows it inline — as a card in
 the chat UI, a line in your Claude Code statusline, or a number in your own app.
 
-|            Honest mode             |            Meme mode             |
-| :--------------------------------: | :------------------------------: |
-| ![honest](docs/media/meter-honest.png) | ![meme](docs/media/meter-meme.png) |
-| the real number is _tiny_ (~0.3 mL) | reproduces the viral gag, labelled **not real** |
+![Thirsty on claude.ai](docs/media/store-screenshot-1.png)
+
+_Live on claude.ai: the card appears below each finished reply. The honest number is
+tiny — a fraction of a millilitre — and an optional **meme mode** reproduces the viral
+"litres!" gag, always labelled "not real"._
 
 ## The honest catch
 
